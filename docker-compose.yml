@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-evently-app
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000" #app
+      - "5555:5555" #Prisma studio
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
