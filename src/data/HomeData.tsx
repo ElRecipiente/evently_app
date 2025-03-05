@@ -2,15 +2,17 @@ const homePageData = {
   images: [
     {
       src: "/img/jazz.png",
-      alt: "Jazz Festival",
-      name: "30 April 2023 - Jakarta, Indonesia",
-      desc: "$135"
+      alt: "Jazz Festival Image",
+      name: "Jazz Festival",
+      desc: "30 April 2023 - Jakarta, Indonesia",
+      price: "$135"
     },
     {
       src: "/img/food.png",
-      alt: "Street Food Festival",
-      name: "21 January 2023 - Jakarta, Indonesia",
-      desc: "$23"
+      alt: "Street Food Festival Image",
+      name: "Street Food Festival",
+      desc: "21 January 2023 - Jakarta, Indonesia",
+      price: "$23"
     },
   ],
   categories: [
