@@ -10,19 +10,17 @@ export const metadata: Metadata = {
 };
 
 export default function OverrideRootLayout({
-                                     children,
-                                   }: Readonly<{
+                                             children,
+                                           }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-    <body>
-    {/* Header */}
-    <Header/>
-    {children}
-    {/* Footer */}
-    <Footer/>
-    </body>
-    </html>
+    <>
+      {/* Header */}
+      <Header/>
+      {children}
+      {/* Footer */}
+      <Footer/>
+    </>
   );
 }
