@@ -1,20 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
-import {QueryEvents} from "@/service/QueryEvents";
+import {useParams} from "next/navigation";
+import {QueryEventById} from "@/service/QueryEventById";
 
-export default function ShowDetails() {
+export default function ShowDetailsById() {
+  const {id} = useParams();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      const result = await QueryEvents();
+      const result = await QueryEventById(id);
       setData(result);
       setLoading(false);
     }
 
     fetchData();
-  }, []);
+  }, [id]);
 
   if (loading) return <div>Loading...</div>;
 
