@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export async function QueryEventById (id: string) {
-  axios({
-    method: "get",
-    url: `/api/events/${id}`,
-  })
-    .then((function (response) {
-      return response.data
-    }))
+  try {
+    const response = await axios.get(`/api/events/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des événements :", error);
+    return null;
+  }
 }
