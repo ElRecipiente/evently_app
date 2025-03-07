@@ -5,31 +5,24 @@ on:
     branches:
       - main # Déclenchement sur push/merge vers main
   workflow_dispatch: # Permet de lancer le workflow manuellement
-
 jobs:
   deploy:
     runs-on: ubuntu-latest # Exécution sur une machine Ubuntu
-
     steps:
       - name: 📥 Checkout du code
         uses: actions/checkout@v4
-
       - name: 🏗️ Installer Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 23 # Doit correspondre à la version de Node.js
           cache: 'npm'
-
-      - name: 📦 Installer les dépendances
+      - name: 📦 Install dependencies
         run: npm ci # "ci" est plus rapide que "install" et évite les erreurs de version
-
-      - name: 🔧 Générer le client Prisma
+      - name: 🔧 Prisma generate
         run: npx prisma generate # Vérifie que Prisma est bien configuré
-
-      - name: ⚙️ Build de l’application
+      - name: ⚙️ Build App
         run: npm run build
-
-      - name: 🚀 Déploiement sur Vercel
+      - name: 🚀 Deploy on Vercel
         run: |
           npm install -g vercel # Installe l'outil CLI de Vercel
           vercel deploy --prod --token ${{ secrets.VERCEL_TOKEN }}
