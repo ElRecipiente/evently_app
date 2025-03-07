@@ -1,1 +1,3 @@
-npm test
+echo "Run lint"
+npm run lint
+echo "Lint OK"
