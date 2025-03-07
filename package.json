@@ -9,7 +9,8 @@
     "lint": "next lint",
     "seed": "esbuild prisma/seed.ts --outfile=node_modules/tmp-seed.cjs --bundle --format=cjs --external:prisma --external:@prisma/client && node node_modules/tmp-seed.cjs --preview-feature",
     "resetdb": "npx prisma db push --force-reset && npm run seed",
-    "studio": "docker compose exec app npx prisma studio"
+    "studio": "docker compose exec app npx prisma studio",
+    "prepare": "husky"
   },
   "dependencies": {
     "@prisma/client": "^6.4.1",
@@ -34,6 +35,7 @@
     "esbuild": "^0.25.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
+    "husky": "^9.1.7",
     "prisma": "^6.4.1",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
